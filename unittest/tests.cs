@@ -148,4 +148,27 @@ public class tests
         Console.WriteLine("b count = " + b.CountOnes());
         Console.WriteLine("count = " + c);
     }
+
+    [Test]
+    public static void SmallValuesLength()
+    {
+        var a = new MGRB();
+        var r = new Random();
+        for (int i =0;i<100; i++)
+        {
+            a.Set(r.Next(10000), true);
+        }
+
+        var b = MGRB.Fill(20000);
+
+        var p = a.Or(b);
+
+        var c = p.CountOnes();
+
+        Assert.AreEqual(b.Length, p.Length);
+
+        var o = a.And(b);
+
+        Assert.AreEqual(a.Length, o.Length);
+    }
 }

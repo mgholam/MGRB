@@ -80,7 +80,6 @@ namespace test
             if (y.CountOnes() * 2 != c)
                 throw new Exception();
 
-            // fix : NOT  
             var zn = zz.Not();
             zn.Optimize();
             var iii = zn.CountOnes();
